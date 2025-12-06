@@ -39,3 +39,14 @@ variable "each_vm" {
     disk_volume = number
   }))
 }
+variable "platform_id" {
+  description = "Platform for all VMs"
+  type        = string
+  default     = "standard-v1"
+}
+# добавил
+variable "web_count" {
+  description = "Number of web instances"
+  type        = number
+  default     = 2
+}
