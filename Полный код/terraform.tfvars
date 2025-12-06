@@ -17,3 +17,6 @@ each_vm = [
     disk_volume = 10
   }
 ]
+# добавил
+platform_id = "standard-v1"
+web_count   = 2
