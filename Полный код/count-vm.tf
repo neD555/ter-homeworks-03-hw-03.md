@@ -1,11 +1,7 @@
-locals {
-  web_names = ["web-1", "web-2"]
-}
-
 resource "yandex_compute_instance" "web" {
-  count       = length(local.web_names)
-  name        = local.web_names[count.index]
-  platform_id = "standard-v1"
+  count       = var.web_count
+  name        = "web-${count.index + 1}"
+  platform_id = var.platform_id
 
   resources {
     cores  = 2
@@ -33,6 +29,5 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
 
-  # web после БД
   depends_on = [yandex_compute_instance.db]
 }
