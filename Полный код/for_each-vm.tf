@@ -8,7 +8,7 @@ locals {
 resource "yandex_compute_instance" "db" {
   for_each    = local.db_vms_map
   name        = each.value.vm_name
-  platform_id = "standard-v1"
+  platform_id = var.platform_id
 
   resources {
     cores  = each.value.cpu
