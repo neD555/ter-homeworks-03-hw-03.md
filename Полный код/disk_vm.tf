@@ -9,6 +9,7 @@ resource "yandex_compute_disk" "storage_data" {
 resource "yandex_compute_instance" "storage" {
   name        = "storage"
   platform_id = var.platform_id
+
   resources {
     cores  = 2
     memory = 2
@@ -28,7 +29,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${local.ssh_public_key}"
+    ssh-keys = "${var.ssh_user}:${local.ssh_public_key}"
   }
 
   scheduling_policy {
