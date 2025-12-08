@@ -3,11 +3,8 @@ cloud_id     = "XXX"
 folder_id    = "XXX"
 default_zone = "ru-central1-a"
 
-image_id   = "fd8b0u8g9q8h8lq4qvbf"
 platform_id = "standard-v1"
-subnet_id  = "e2lXXXXXXXXXXXX"
-security_group_ids = ["enpXXXXXXXXXXXX"]
-ssh_user   = "ubuntu"
+ssh_user    = "ubuntu"
 
 web_count = 2
 web_cpu   = 2
@@ -28,3 +25,6 @@ each_vm = [
     disk_volume = 10
   }
 ]
+
+vpc_name     = "develop"
+default_cidr = ["10.0.0.0/24"]
