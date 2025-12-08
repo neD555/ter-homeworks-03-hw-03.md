@@ -10,15 +10,15 @@ resource "yandex_compute_instance" "web" {
 
   boot_disk {
     initialize_params {
-      image_id = var.image_id
+      image_id = data.yandex_compute_image.ubuntu.id
       size     = var.web_disk
     }
   }
 
   network_interface {
-    subnet_id          = var.subnet_id
+    subnet_id          = yandex_vpc_subnet.develop.id
     nat                = true
-    security_group_ids = var.security_group_ids
+    security_group_ids = [yandex_vpc_security_group.example.id]
   }
 
   metadata = {
