@@ -1,7 +1,18 @@
-token        = "t1.9euelZqXz8iWz52------------------iMqXzfrxqfmfItoQtBw"
-cloud_id     = "b1g5bqv45d5n8tdbrniv"
-folder_id    = "b1ghtgo92hqnuj1kv2ao"
+token        = "XXX"
+cloud_id     = "XXX"
+folder_id    = "XXX"
 default_zone = "ru-central1-a"
+
+image_id   = "fd8b0u8g9q8h8lq4qvbf"
+platform_id = "standard-v1"
+subnet_id  = "e2lXXXXXXXXXXXX"
+security_group_ids = ["enpXXXXXXXXXXXX"]
+ssh_user   = "ubuntu"
+
+web_count = 2
+web_cpu   = 2
+web_ram   = 2
+web_disk  = 10
 
 each_vm = [
   {
@@ -17,6 +28,3 @@ each_vm = [
     disk_volume = 10
   }
 ]
-# добавил
-platform_id = "standard-v1"
-web_count   = 2
