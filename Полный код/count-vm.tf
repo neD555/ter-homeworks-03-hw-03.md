@@ -4,25 +4,25 @@ resource "yandex_compute_instance" "web" {
   platform_id = var.platform_id
 
   resources {
-    cores  = 2
-    memory = 2
+    cores  = var.web_cpu
+    memory = var.web_ram
   }
 
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
-      size     = 10
+      image_id = var.image_id
+      size     = var.web_disk
     }
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.develop.id
+    subnet_id          = var.subnet_id
     nat                = true
-    security_group_ids = [yandex_vpc_security_group.example.id]
+    security_group_ids = var.security_group_ids
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${local.ssh_public_key}"
+    ssh-keys = "${var.ssh_user}:${local.ssh_public_key}"
   }
 
   scheduling_policy {
