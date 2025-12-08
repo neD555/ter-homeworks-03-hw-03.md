@@ -1,52 +1,60 @@
 variable "token" {
-  description = "Yandex Cloud IAM token"
-  type        = string
+  type = string
 }
 
 variable "cloud_id" {
-  description = "Yandex Cloud cloud id"
-  type        = string
+  type = string
 }
 
 variable "folder_id" {
-  description = "Yandex Cloud folder id"
-  type        = string
+  type = string
 }
 
 variable "default_zone" {
-  description = "Default availability zone"
-  type        = string
+  type = string
 }
 
-variable "vpc_name" {
-  description = "VPC name"
-  type        = string
-  default     = "develop"
+variable "image_id" {
+  type = string
 }
 
-variable "default_cidr" {
-  description = "CIDR for default subnet"
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
+variable "platform_id" {
+  type = string
+}
+
+variable "subnet_id" {
+  type = string
+}
+
+variable "security_group_ids" {
+  type = list(string)
+}
+
+variable "ssh_user" {
+  type = string
+}
+
+variable "web_count" {
+  type = number
+}
+
+variable "web_cpu" {
+  type = number
+}
+
+variable "web_ram" {
+  type = number
+}
+
+variable "web_disk" {
+  type = number
 }
 
 variable "each_vm" {
-  description = "DB VMs definitions"
   type = list(object({
     vm_name     = string
     cpu         = number
     ram         = number
     disk_volume = number
   }))
-}
-variable "platform_id" {
-  description = "Platform for all VMs"
-  type        = string
-  default     = "standard-v1"
-}
-# добавил
-variable "web_count" {
-  description = "Number of web instances"
-  type        = number
-  default     = 2
 }
