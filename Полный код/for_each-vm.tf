@@ -17,19 +17,19 @@ resource "yandex_compute_instance" "db" {
 
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
+      image_id = var.image_id
       size     = each.value.disk_volume
     }
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.develop.id
+    subnet_id          = var.subnet_id
     nat                = true
-    security_group_ids = [yandex_vpc_security_group.example.id]
+    security_group_ids = var.security_group_ids
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${local.ssh_public_key}"
+    ssh-keys = "${var.ssh_user}:${local.ssh_public_key}"
   }
 
   scheduling_policy {
