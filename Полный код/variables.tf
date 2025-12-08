@@ -14,20 +14,8 @@ variable "default_zone" {
   type = string
 }
 
-variable "image_id" {
-  type = string
-}
-
 variable "platform_id" {
   type = string
-}
-
-variable "subnet_id" {
-  type = string
-}
-
-variable "security_group_ids" {
-  type = list(string)
 }
 
 variable "ssh_user" {
@@ -57,4 +45,12 @@ variable "each_vm" {
     ram         = number
     disk_volume = number
   }))
+}
+
+variable "vpc_name" {
+  type = string
+}
+
+variable "default_cidr" {
+  type = list(string)
 }
